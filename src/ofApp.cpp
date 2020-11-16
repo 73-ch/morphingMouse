@@ -18,7 +18,10 @@ void ofApp::draw(){
     
     // playbackMouse
     ofSetColor(120, 240, 240);
-    ofDrawCircle(playback.getCurrentPos(), 10);
+    
+    for (auto& p : playback.getCurrentPositions()) {
+        ofDrawCircle(p, 10);
+    }
     
     
     // progress bar
@@ -38,6 +41,8 @@ void ofApp::draw(){
 void ofApp::keyPressed(int key){
     if (key == 'r') {
         playback.startRecord();
+    } else if (key == 'c') {
+        playback.clearRecords();
     }
 }
 

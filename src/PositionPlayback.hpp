@@ -19,15 +19,27 @@ public:
         Playing,
         Stopping
     };
+    
+    enum MorphingMode {
+        NoMorphing,
+        Linear,
+        CubicSprine
+    };
 
     PositionPlayback();
   
     vector<glm::vec2> positions;
-    float getProgress() const;
+    vector<vector<glm::vec2>> recorded_positions;
+    
     void update(const glm::vec2& recordedPosition = glm::vec2(0));
+    
     void startRecord();
-    glm::vec2 getCurrentPos() const;
+    void clearRecords();
+    
+    float getProgress() const;
+    vector<glm::vec2> getCurrentPositions() const;
     PlaybackStatus getCurrentStatus() const;
+    
     
 private:
     unsigned int counter = 0;
