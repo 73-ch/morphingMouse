@@ -9,6 +9,7 @@
 #define PositionPlayback_hpp
 
 #include "ofMain.h"
+#include "ofxCubicSpline.h"
 
 class PositionPlayback {
 public:
@@ -27,11 +28,13 @@ public:
     void startRecord();
     glm::vec2 getCurrentPos() const;
     PlaybackStatus getCurrentStatus() const;
+    
 private:
     unsigned int counter = 0;
     unsigned int duration = 120;
     
     PlaybackStatus status = Stopping;
+    void morphPositions();
 };
 
 #endif /* PositionPlayback_hpp */

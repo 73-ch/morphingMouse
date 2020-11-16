@@ -1,3 +1,4 @@
+ofxCubicSpline
 ofxEasing
 ofxOsc
 ofxPubSubOsc
