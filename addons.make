@@ -1,0 +1,3 @@
+ofxEasing
+ofxOsc
+ofxPubSubOsc
