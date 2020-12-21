@@ -1,10 +1,3 @@
-//
-//  PositionPlayback.cpp
-//  morphingMouse
-//
-//  Created by Kosaku Namikawa on 2020/11/16.
-//
-
 #include "PositionPlayback.hpp"
 
 
@@ -51,8 +44,6 @@ void PositionPlayback::clearRecords() {
 void PositionPlayback::morphPositions() {
     ofxCubicSpline cubic_x, cubic_y;
     
-    const int morph_duration = 10;
-    
     vector<glm::vec2> input_x;
     input_x.push_back(glm::vec2(-1, positions[duration - morph_duration - 1].x));
     input_x.push_back(glm::vec2(0, positions[duration - morph_duration].x));
@@ -82,6 +73,10 @@ vector<glm::vec2> PositionPlayback::getCurrentPositions() const {
     transform(recorded_positions.begin(), recorded_positions.end(), tmp.begin(), [&](const vector<glm::vec2> positions) {return positions[counter];});
     
     return move(tmp);
+}
+
+void PositionPlayback::setMorphDuration(int duration) {
+    morph_duration = duration;
 }
 
 float PositionPlayback::getProgress() const {

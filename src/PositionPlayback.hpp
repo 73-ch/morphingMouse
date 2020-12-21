@@ -40,10 +40,13 @@ public:
     vector<glm::vec2> getCurrentPositions() const;
     PlaybackStatus getCurrentStatus() const;
     
+    void setMorphDuration(int duration);
+    
     
 private:
     unsigned int counter = 0;
     unsigned int duration = 120;
+    int morph_duration = 10;
     
     PlaybackStatus status = Stopping;
     void morphPositions();
