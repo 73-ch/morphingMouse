@@ -14,10 +14,16 @@ void ofApp::update(){
 void ofApp::draw(){
     // currentMouse
     ofSetColor(240, 120, 240);
-    ofDrawCircle(currentMousePos, 10);
+    ofxDrawDirectionalCircle(currentMousePos, beforeMousePos, 10);
     
     // playbackMouse
     ofSetColor(120, 240, 240);
+    
+    auto currentPositions = playback.getCurrentPositions();
+    
+    for (int i = 0; i < beforePositions.size(); ++i) {
+        ofxDrawDirectionalCircle(currentPositions[i], beforePositions[i], 10);
+    }
     
     for (auto& p : playback.getCurrentPositions()) {
         ofDrawCircle(p, 10);
@@ -35,6 +41,8 @@ void ofApp::draw(){
     }
     
     ofDrawRectangle(0, 0, ofGetWidth() * playback.getProgress(), 10);
+    
+    beforePositions = move(currentPositions);
 }
 
 //--------------------------------------------------------------
@@ -53,6 +61,7 @@ void ofApp::keyReleased(int key){
 
 //--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y ){
+    beforeMousePos = currentMousePos;
     currentMousePos = glm::vec2(x, y);
 }
 

@@ -1,4 +1,5 @@
 ofxCubicSpline
+ofxDirectionalCircle
 ofxEasing
 ofxOsc
 ofxPubSubOsc

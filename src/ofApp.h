@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "PositionPlayback.hpp"
+#include "ofxDrawDirectionalCircle.h"
 
 class ofApp : public ofBaseApp{
 
@@ -23,7 +24,8 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
   
     PositionPlayback playback;
-    
+    vector<glm::vec2> beforePositions;
 
     glm::vec2 currentMousePos;
+    glm::vec2 beforeMousePos;
 };
